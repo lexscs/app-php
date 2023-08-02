@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Curso } from './curso';
 import { CursoService } from './curso.service';
 
+
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.component.html',
@@ -45,8 +46,8 @@ export class CursoComponent implements OnInit {
     );
   }
 
-  salvar()
-  {//se o ID do curso for undefined quer dizer que é um NOVO CURSO, ou seja, necessita cadastrar!
+  salvar(){
+    //se o ID do curso for undefined quer dizer que é um NOVO CURSO, ou seja, necessita cadastrar!
     if(this.curso.idCurso == undefined)
     {
       this.cadastro();
@@ -59,25 +60,23 @@ export class CursoComponent implements OnInit {
 
 
   //Cadastrar
-  cadastro()
-  {
+  cadastro(){
     //listagem dos dados no console
     //console.log("Em curso.component cadastro() " + "cursoNome: " + this.curso.cursoNome + " valorCurso: " + this.curso.valorCurso )
     this.curso_service.cadastrarCurso(this.curso).subscribe(
-      (res: Curso[]) => {
+      (res: Curso) => {
         //Limpar os atributos
         this.curso.nomeCurso = "";
         this.curso.valorCurso = 0;
 
         //Atualizar listagem com o novo cadastro
-        this.getCursos();
+        this.selecao();
       }
     );
   }
 
   //Alterar
-  alterar()
-  {
+  alterar(){
     this.curso_service.alterarCurso(this.curso).subscribe(
       (res: Curso) => {
 
