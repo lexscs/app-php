@@ -1,0 +1,20 @@
+
+.bordas{
+  width: 100%;
+}
+.bordaHeader{
+border: solid 1px black;
+
+
+
+}
+
+.bordaBody{
+
+  border: solid 1px black;
+ width:500px;
+
+
+
+
+}

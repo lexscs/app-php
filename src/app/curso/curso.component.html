@@ -1,0 +1,32 @@
+<!-- Formulário -->
+
+<h1>Gerenciamento de Cursos</h1>
+<form (ngSubmit)="salvar()">
+  <label for="nomeCurso">CURSO</label>
+  <input type="text" name="nomeCurso" [(ngModel)]="curso.nomeCurso" >
+  <br>
+
+  <label for="valorCurso">VALOR</label>
+  <input type="number" name="valorCurso" [(ngModel)]="curso.valorCurso" >
+  <br><br>
+
+  <button type="submit">Salvar</button>
+</form>
+
+<section>
+  <button (click)="remover()">Excluir</button>
+</section>
+
+
+<p></p>
+
+<!-- Tabela -->
+<table border="1">
+  <tr *ngFor="let v of vetor">
+    <td>{{ v.idCurso }}</td>
+    <td>{{ v.nomeCurso }}</td>
+    <td>{{ v.valorCurso }}</td>
+    <td><button (click)="selecionarCurso(v)">Selecionar Curso</button></td>
+  </tr>
+</table>
+
