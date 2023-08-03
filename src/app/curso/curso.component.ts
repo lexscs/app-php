@@ -46,17 +46,17 @@ export class CursoComponent implements OnInit {
     );
   }
 
-  salvar(){
-    //se o ID do curso for undefined quer dizer que é um NOVO CURSO, ou seja, necessita cadastrar!
-    if(this.curso.idCurso == undefined)
-    {
-      this.cadastro();
-      //chama o método de cadastro
-    } else
-    {
-      this.alterar();
-      //se o curso tem ID é pq ele foi selecionado, ouo seja, podemos excluir ou alterar. Neste caso, ao clicar em salvar, como faz a verifcação do ID, se for diferente de UNDEFINED, ele vai para ELSE, será chamado de método alterar
-    }
+  // salvar(){
+  //   //se o ID do curso for undefined quer dizer que é um NOVO CURSO, ou seja, necessita cadastrar!
+  //   if(this.curso.idCurso == undefined)
+  //   {
+  //     this.cadastro();
+  //     //chama o método de cadastro
+  //   } else
+  //   {
+  //     this.alterar();
+  //     //se o curso tem ID é pq ele foi selecionado, ouo seja, podemos excluir ou alterar. Neste caso, ao clicar em salvar, como faz a verifcação do ID, se for diferente de UNDEFINED, ele vai para ELSE, será chamado de método alterar
+  //   }
 
 
   //Cadastrar
@@ -88,10 +88,11 @@ export class CursoComponent implements OnInit {
         this.curso.valorCurso = 0;
         this.selecao();
         }
+      );
   }
 
   //Remover
-  remover() {
+  remover(): void {
     this.curso_service.removerCurso(this.curso.idCurso).subscribe(
       (res : Curso) => {
         this.curso.nomeCurso = "";
@@ -109,5 +110,5 @@ export class CursoComponent implements OnInit {
     console.log("Curso selecionado: ", this.curso.nomeCurso + "id: " + this.curso.idCurso)
   }
 
-  }
 }
+
