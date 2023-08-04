@@ -26,15 +26,10 @@
     }
 
 //JSON
-    //(imprime dados no formato Json. Obrigatorio para seu metodo no FRONT funcionar.)
-    // json_encode(['cursos' => $cursos]);     
-    //cria JSON
+
+    // json_encode(['cursos' => $cursos]);     //cria JSON
     echo json_encode($cursos);
 
     //var_dump($cursos); //- Listar
-
-    
-    
-    
 
 ?>

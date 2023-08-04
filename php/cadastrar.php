@@ -1,12 +1,12 @@
 <?php
 
 //Incluir conexao
-    include("conexao.php");
-    
+include("conexao.php");
+
 
 //Obter dados
     $obterDados = file_get_contents("php://input");
-    
+
 
 //Extrair os dados do JSON
     $extrair = json_decode($obterDados);
@@ -14,9 +14,9 @@
 
 //Separar os dados do JSON
     //$nomeCurso = $extrair-> cursos-> nomeCurso;   //cursos é o nome do JSON definido com json_encode
-    //$valorCurso = $extrair-> cursos-> valorCurso; 
+    //$valorCurso = $extrair-> cursos-> valorCurso;
     $nomeCurso = $extrair->nomeCurso;
-    $valorCurso =$extrair->valorCurso;
+    $valorCurso = $extrair->valorCurso;
 
 
 //SQL
@@ -24,12 +24,12 @@
    mysqli_query($conexao, $sql);
 
 //Exportar os dados cadastrados
-    $cursos = [
+    $curso = [
         'nomeCurso' => $nomeCurso,
         'valorCurso' => $valorCurso
     ];
 
-    //json_encode(['curso'=> $curso]);
-    //echo json_encode($curso);
+    json_encode(['curso'=> $curso]);
+    echo json_encode($curso);
 
 ?>

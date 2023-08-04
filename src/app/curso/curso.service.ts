@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 export class CursoService {
 
   //URL
-  url = "http://localhost:83/api/php/"
+  url = "http://localhost:4200/api/php/"
 
   //Vetor
   vetor: Curso[] = [];
